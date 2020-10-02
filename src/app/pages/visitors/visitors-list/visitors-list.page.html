@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Visitors</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+ <div class="visitorsMainDiv">
+   <div *ngFor="let visitData of visitorsList  | groupBy : 'createdDate'">
+    <p class="keyCls"> {{visitData.key}}</p>
+    <div class="visitorsCardDiv" *ngFor="let v of visitData.data" (click)="editVisitor(v)">
+      <ion-grid>
+        <ion-row class="nameCls">
+          <ion-col>
+            <p>Visitor</p>
+            <h2>{{v.name}}</h2>
+            <b>{{v.typeOfVisit}}</b>
+          </ion-col>
+          <ion-col>
+           <p>To</p>
+           <h2>{{v.toVisit}}</h2>
+          </ion-col>
+        </ion-row>
+        <ion-row class="checkInOutCls">
+          <ion-col align="" class="checkInCls">
+            Check In : {{v.checkIn | date : 'hh:mm a'}} 
+          </ion-col>
+          <ion-col align=""  class="checkOutCls">
+           Check In : {{v.checkOut | date : 'hh:mm a'}}  
+         </ion-col>
+        </ion-row>
+      </ion-grid>
+   </div>
+   </div>
+
+ </div>
+</ion-content>
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="addVisitor()">
+    <ion-icon name="add-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

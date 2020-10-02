@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>News</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+<div class="newsMainDiv">
+  <h2 class="newsTitle">{{newsDetails.title}}</h2>
+  <p class="newsAuthor">Author : {{newsDetails.author}}</p>
+  <p class="publishDate"> {{newsDetails.publishedAt | date : 'dd MMM yyyy @hh:mm'}}</p>
+ <img src="{{newsDetails.urlToImage}}">
+ <div class="newsDetails">
+  <p class="newsDescription">{{newsDetails.description}}</p>
+ </div>
+</div>
+</ion-content>

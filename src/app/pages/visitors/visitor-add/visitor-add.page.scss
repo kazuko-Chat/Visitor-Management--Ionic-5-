@@ -1,0 +1,20 @@
+ion-list{
+    margin: 10px;
+    background: transparent;
+    ion-item{
+        --background: transparent;
+        margin-bottom: 20px;
+        ion-input,ion-select,ion-datetime{
+            border-bottom: 1px solid #ddd;
+        }
+    }
+}
+
+.submitBtn{
+    ion-button{
+        height: 59px;
+        font-size: 20px;
+        text-transform: capitalize;
+        width: 80%;
+    }
+}

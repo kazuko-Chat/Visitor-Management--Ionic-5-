@@ -1,0 +1,24 @@
+.newsMainDiv{
+    padding: 10px;
+    .publishDate{
+        font-size: 12px;
+        margin: 0;
+        color: #383a3e;
+        margin-bottom: 10px;
+    }
+    .newsTitle{
+        color: var(--ion-color-primary);
+        font-size: 17px;
+        margin: 10px 0px;
+    }
+    .newsAuthor{
+            margin-top: 0px;
+}
+    img{
+        border-radius: 5px;
+    }
+   .newsDetails{
+    font-size: 20px;
+    color: #383a3e
+   } 
+}

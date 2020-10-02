@@ -1,0 +1,46 @@
+.visitorsMainDiv{
+    padding: 10px;
+    .keyCls{
+        text-align: center;
+        font-size: 11px;
+        columns: #333333;
+    }
+    .visitorsCardDiv{
+        background: #ffffff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px 1px #ddd;
+        margin-bottom: 5px;
+        ion-grid{
+            .nameCls{
+                border-bottom: 1px solid #ddd;
+            }
+            ion-row{
+            
+                .checkInCls{
+                    color: #28ba62;
+                    font-size: 13px;
+                }
+                .checkOutCls{
+                    color: #eb445a;
+                    font-size: 13px;
+                }
+            }:first-child{
+               // border-bottom: 1px solid #ddd;
+                ion-col:first-child{
+                    border-right: 1px solid #ddd;
+                }
+            }
+          
+            p{
+                font-size: 12px;
+                margin-bottom: 5px;
+                color: grey;
+            }
+            h2{
+                font-size: 15px;
+                margin-top: 0px;
+            }
+        }
+    }
+}

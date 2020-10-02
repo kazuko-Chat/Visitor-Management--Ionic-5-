@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add Visitors</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+<ion-list lines="none">
+  <ion-item>
+    <ion-label position="stacked">Name</ion-label>
+    <ion-input type="text" [(ngModel)]="visitorsForm.name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Email</ion-label>
+    <ion-input type="email" [(ngModel)]="visitorsForm.email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Type of visit</ion-label>
+    <ion-select placeholder="Select One" [(ngModel)]="visitorsForm.typeOfVisit">
+      <ion-select-option value="Meeting">Meeting</ion-select-option>
+      <ion-select-option value="Delivery">Delivery</ion-select-option>
+      <ion-select-option value="Personal">Personal</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Person to visit</ion-label>
+    <ion-input type="text" [(ngModel)]="visitorsForm.toVisit"></ion-input>
+  </ion-item>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="stacked">Check In</ion-label>
+          <ion-datetime displayFormat="h:mm a" [(ngModel)]="visitorsForm.checkIn"></ion-datetime>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-label position="stacked">Check Out</ion-label>
+          <ion-datetime displayFormat="h:mm a" [(ngModel)]="visitorsForm.checkOut"></ion-datetime>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-list>
+<div align="center" class="submitBtn">
+  <ion-button shape="round" expand="block" (click)="submit()">Submit</ion-button>
+</div>
+</ion-content>
+<ion-footer>
+</ion-footer>

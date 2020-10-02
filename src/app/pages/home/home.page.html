@@ -1,0 +1,62 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      Dashboard
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="visitorsMainDiv" *ngIf="latestNews.length > 0">
+    <h2 class="newsHead">Recent Visitors <span *ngIf="visitorsList.length > 0" (click)="viewVisitors()">View All</span></h2>
+    <div class="noVisitor" *ngIf="visitorsList.length < 1">
+      <p >There is as such such no visitors. Click on <b>Add</b> button to start.</p>
+      <div align="right">
+        <ion-button (click)="addVisitor()"><ion-icon name="add-circle-outline"></ion-icon> &nbsp; Add</ion-button>
+      </div>
+    </div>
+
+    <div class="visitorsMainDiv" *ngIf="visitorsList.length > 0">
+      <div class="visitorsCardDiv" *ngFor="let v of visitorsList">
+         <ion-grid>
+           <ion-row class="nameCls">
+             <ion-col>
+               <p>Visitor</p>
+               <h2>{{v.name}}</h2>
+               <b>{{v.typeOfVisit}}</b>
+             </ion-col>
+             <ion-col>
+              <p>To</p>
+              <h2>{{v.toVisit}}</h2>
+             </ion-col>
+           </ion-row>
+           <ion-row class="checkInOutCls">
+             <ion-col align="" class="checkInCls">
+               Check In : 10am 
+             </ion-col>
+             <ion-col align=""  class="checkOutCls">
+              Check In : 10am 
+            </ion-col>
+           </ion-row>
+         </ion-grid>
+      </div>
+       </div>
+    
+   </div>
+ <div class="latestNewsMainDiv" *ngIf="latestNews.length > 0">
+  <h2 class="newsHead">Latest News <span>View All</span></h2>
+  <ion-grid>
+    <ion-row>
+       <ion-col *ngFor="let n of latestNews" size="12" size-sm="12" size-md="6" size-lg="3" (click)="newsDetails(n)">
+         <div class="newsCard">
+           <img src="{{n.urlToImage}}">
+          <div class="newsDetails">
+            <p class="newsTitle">{{n.title}}</p>
+            <p class="newsAuthor">{{n.author}}</p>
+            <p class="newsDate"> <ion-icon name="time-outline"></ion-icon> {{n.publishedAt | date : 'dd MMM yyyy @hh:mm'}}</p>
+          </div>
+         </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+ </div>
+</ion-content>
