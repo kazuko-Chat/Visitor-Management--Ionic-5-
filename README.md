@@ -22,7 +22,7 @@
 
   
 ### Download APK from below URL
-- https://drive.google.com/file/d/1oyq-aTXyAr6-A7titnJ4-TiPJilydyDi/view?usp=sharing
+- https://drive.google.com/file/d/1GS-LlpVT94cqNo4t04Dn3l2HD7mscmHd/view?usp=sharing
 
 ### App Screenshots
 
