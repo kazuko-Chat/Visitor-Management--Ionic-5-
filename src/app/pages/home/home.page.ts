@@ -18,7 +18,14 @@ export class HomePage {
     private httpServiceService : HttpServiceService,
     private navController: NavController) {
       this.getLatestNews();
+    
+    }
+    ionViewDidEnter(){
+      setTimeout(() => {
+        if(this.commonFunctionService.storageData['visitors']){
           this.visitorsList = this.commonFunctionService.storageData['visitors'];
+        }
+      }, 500);
     }
     getLatestNews(){
       this.appComponent.isLoader = true;

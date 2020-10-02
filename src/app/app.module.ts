@@ -17,6 +17,7 @@ import { config } from '../shared/config';
 import { Network } from '@ionic-native/network/ngx';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { CommonPipeModule } from './pipes/common.module';
+import { IonicStorageModule } from '@ionic/storage';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { CommonPipeModule } from './pipes/common.module';
   entryComponents: [],
   imports: [BrowserModule, 
     IonicModule.forRoot(), 
+    IonicStorageModule.forRoot(),
     HttpClientModule,
     AppRoutingModule,
     CommonModule,

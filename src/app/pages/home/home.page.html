@@ -6,7 +6,7 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <div class="visitorsMainDiv" *ngIf="latestNews.length > 0">
+  <div class="visitorsMainDiv">
     <h2 class="newsHead">Recent Visitors <span *ngIf="visitorsList.length > 0" (click)="viewVisitors()">View All</span></h2>
     <div class="noVisitor" *ngIf="visitorsList.length < 1">
       <p >There is as such such no visitors. Click on <b>Add</b> button to start.</p>
@@ -43,7 +43,7 @@
     
    </div>
  <div class="latestNewsMainDiv" *ngIf="latestNews.length > 0">
-  <h2 class="newsHead">Latest News <span>View All</span></h2>
+  <h2 class="newsHead">Latest News</h2>
   <ion-grid>
     <ion-row>
        <ion-col *ngFor="let n of latestNews" size="12" size-sm="12" size-md="6" size-lg="3" (click)="newsDetails(n)">

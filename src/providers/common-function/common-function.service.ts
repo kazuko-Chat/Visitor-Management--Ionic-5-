@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild, ElementRef, Injectable } from '@angular/core';
-import { ToastController } from '@ionic/angular';
+import { ToastController, Platform } from '@ionic/angular';
  import { Network } from '@ionic-native/network/ngx';
 import {config} from '../../shared/config';
 import { AlertController } from '@ionic/angular';
-import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { Storage } from '@ionic/storage';
 
 
 @Injectable()
@@ -16,7 +16,8 @@ export class CommonFunctionService {
   constructor(public toastController: ToastController,
                public network: Network,
               public alertController: AlertController,
-              public nativeStorage: NativeStorage
+              public platform : Platform,
+              public storage : Storage
               ) { 
                 this.imgUrl = config['imgUrl'];
                 this.articleDummyData = [
@@ -283,15 +284,6 @@ export class CommonFunctionService {
               ]
               }
 
-      async presentAlert(title, msg) {
-        const alert = await this.alertController.create({
-          header: title,
-          message: msg,
-          buttons: ['OK']
-        });
-        await alert.present();
-      }
-
   async presentToast(msg) {
     const toast = await this.toastController.create({
       message: msg,
@@ -300,28 +292,6 @@ export class CommonFunctionService {
     });
     toast.present();
   }
-
-  noInternetConnection() {
-    this.presentToast("No internet connection");
-  }
-
-  noInternetConnectionSubscribe(){
-    this.network.onDisconnect().subscribe(() => {
-      this.noInternetConnection();
-    });
-    this.network.onConnect().subscribe(() => {
-    });
-  }
-
-  isInternet() {
-    if (this.network.type === 'none') {
-      return false;
-    }
-    else{
-      return false;
-    }
-  }
-
 
   readMore(text){
    if(text.length == 200){
@@ -333,34 +303,34 @@ export class CommonFunctionService {
   }
 
   ionicStorageSet(){
-  localStorage.setItem("storageData", JSON.stringify(this.storageData));
-  //  this.nativeStorage.setItem('storageData', JSON.stringify(this.storageData))
-  // .then(
-  //   () => console.log('Stored item!'),
-  //   error => console.error('Error storing item', error)
-  // );
+     if(this.platform.is('cordova')){
+    this.storage.set( "storageData", JSON.stringify(this.storageData));
+     }else{
+        localStorage.setItem("storageData", JSON.stringify(this.storageData));
+   }
     this.ionicStorageGet();
   }
 
   ionicStorageGet(){
+      console.log('debug')
+    if(this.platform.is('cordova')){
+        this.storage.get('storageData').then((data) => {
+            if(data){
+            this.storageData = JSON.parse(data);
+          }else{
+            this.storageData['visitors'] = [];
+          }
+    })
+    }else{
     if(localStorage.getItem("storageData")){
       this.storageData  =  JSON.parse(localStorage.getItem("storageData"))
     }else{
       this.storageData['visitors'] = [];
     }
-  //   this.nativeStorage.getItem('myitem')
-  // .then(
-  //   data =>{
-  //     console.log(data)
-  //     this.storageData = JSON.parse(data);
-  //   },
-  //   error => {
-  //     alert(JSON.stringify(error))
-  //   }
-  // );
+    }
   }
 
   ionicStorageClear(){
-    this.nativeStorage.clear();
+    localStorage.clear();
   }
 }

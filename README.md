@@ -1,43 +1,32 @@
-# Toy Robot Simulator (IONIC 5)
+# Visitor Managment System (IONIC 5)
 
 ## Description
 
-- The application is a simulation of a toy robot moving on a square tabletop,
-  of dimensions 5 units x 5 units.
-- There are no other obstructions on the table surface.
-- The robot is free to roam around the surface of the table, but must be
-  prevented from falling to destruction. Any movement that would result in the
-  robot falling from the table must be prevented, however further valid movement
-  commands must still be allowed.
- 
-The application that can read in commands of the following form
+- Create Ionic Mobile App for Visitor log with following requirements:
 
-    PLACE X,Y,F
-    MOVE
-    LEFT
-    RIGHT
-    REPORT
+      1)	Accept visitor entry using a form on a page where the user can enter:
+      a.	Name
+      b.	Email
+      c.	Type of visit (Meeting / Delivery / Personal)
+      d.	Person to visit
+      e.	Date of entry (should be current date, user shouldn’t be able to update it, but he should be able to view it)
+      f.	Time of entry
+      g.	Time of exit
+	
+ Store this information locally such that it can be accessed even if the app is killed and re-opened (i.e. persistent storage)
 
-- PLACE will put the toy robot on the table in position X,Y
-  and facing NORTH, SOUTH, EAST or WEST.
-- The origin (0,0) can be considered to be the SOUTH WEST most corner.
-- The first valid command to the robot is a PLACE command, after that,
-  any sequence of commands may be issued, in any order, including another
-  PLACE command. The application should discard all commands in the
-  sequence until a valid PLACE command has been executed.
-- MOVE will move the toy robot one unit forward in the direction it is currently
-  facing.
-- LEFT and RIGHT will rotate the robot 90 degrees in the specified direction
-  without changing the position of the robot.
-- REPORT will announce the X,Y and F of the robot.
-- Any move that would cause the robot to fall must be ignored.
+- 2) Show a visitor log list with fields from the form.
+
+- 3) Show a news listing on a separate menu item called “Latest News” by fetching it from the API.
+
+
   
 ### Download APK from below URL
 - https://drive.google.com/file/d/1oyq-aTXyAr6-A7titnJ4-TiPJilydyDi/view?usp=sharing
 
 ### App Screenshots
 
-![alt screenshot](https://firebasestorage.googleapis.com/v0/b/vicky-resume.appspot.com/o/img.png?alt=media&token=3f96fba7-a347-4962-824c-338c64cac0ce)
+![alt screenshot](https://firebasestorage.googleapis.com/v0/b/vicky-resume.appspot.com/o/visitorManagmentSystem.png?alt=media&token=c2d6e65e-00fa-49d2-9b73-33daad2a6a2b)
 ### Get started
 - Make sure you have the Node and git,  installed on your machine
 
@@ -45,11 +34,11 @@ The application that can read in commands of the following form
 `node --version`  Check installed node version
 
 ### Clone the repo from github
-`git clone https://github.com/palvicky099/Toy-Robot-Simulator.git`
+`git clone https://github.com/palvicky099/Visitor-Management--Ionic-5-.git`
 
 - Got to project directory and install npm package
 
-`cd Toy-Robot-Simulator`
+`cd Visitor-Management--Ionic-5-`
 
 `npm install`
 
